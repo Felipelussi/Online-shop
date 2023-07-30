@@ -1,63 +1,71 @@
-<%- include('../includes/head', {pageTitle: 'Signup'}) %>
-</head>
+<%- include('../includes/head', {pageTitle: 'Signup' }) %>
+    <link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/auth.css">
+
+
+    </head>
 
     <body>
 
         <%- include('../includes/header') %>
-        
-        <main>
-            <h1>Create New Account</h1>
-            <form action="" method="">
-        
 
-                <p>
-                    <label for="email">E-Mail:
+            <main>
+                <h1>Create New Account</h1>
+                <form action="/signup" method="POST">
+
+
+                    <p>
+                        <label for="email">E-Mail</label>
                         <input type="email" id="email" name="email" required>
-                    </label>
-                </p>
 
-                <p>
-                    <label for="confirm-email">Confirm E-Mail:
+                    </p>
+
+                    <p>
+                        <label for="confirm-email">Confirm E-Mail</label>
                         <input type="email" id="confirm-email" name="confirm-email" required>
-                    </label>
-                </p>
 
-                <p>
-                    <label for="password">Password:
+                    </p>
+
+                    <p>
+                        <label for="password">Password</label>
                         <input type="password" id="password" name="password" minlength="6" required>
-                    </label>
-                </p>
-         
 
-                <hr>
+                    </p>
 
-                <p>
-                    <label for="fullname">Full Name:
+
+                    <hr>
+
+                    <p>
+                        <label for="fullname">Full Name</label>
                         <input type="text" id="fullname" name="fullname">
-                    </label>
-                </p>
 
-                <p>
-                    <label for="street">Street:
+                    </p>
+
+                    <p>
+                        <label for="street">Street</label>
                         <input type="text" id="street" name="street">
-                    </label>
-                </p>
 
-                <label for="postal">Postal Code:
-                    <input type="text" id="postal" name="postal" minlength="8" maxlength="8" required>
-                </label>
+                    </p>
 
-                <label for="city">City:
-                    <input type="text" id="city" name="city" required>
-                </label>
+                    <p>
+                        <label for="postal">Postal Code</label>
+                        <input type="text" id="postal" name="postal" minlength="8" maxlength="8" required>
 
-                <button class="btn">Create Account</button>
-                <p><a id="switch-form" href="/login">Login instead</a></p>
-            </form>
-        </main>
+                    </p>
+
+                    <p>
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" required>
+
+                    </p>
+
+                    <button class="btn">Create Account</button>
+                    <p><a id="switch-form" href="/login">Login instead</a></p>
+                </form>
+            </main>
 
 
 
 
 
-<%- include('../includes/footer') %>
+            <%- include('../includes/footer') %>

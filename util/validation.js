@@ -1,13 +1,13 @@
 function isValid(value) {
-  return value && value.trim() !== "";
+  return (value && value.trim() !== "")
 }
 
 function validCredentials(email, password) {
-  return email && email.includes("@") && password && password.trim().length > 5;
+  return (email && email.includes("@") && password && password.trim().length > 5)
 }
 
 function emailIsConfirmed(email, confirmEmail) {
-  return email === confirmEmail;
+  return (email === confirmEmail)
 }
 
 function userDetailsAreValid(email, password, name, street, postal, city) {

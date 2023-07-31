@@ -34,8 +34,8 @@ async function signup(req, res, next) {
   if (
     !validation.userDetailsAreValid(
       req.body.email,
-      req.body.fullname,
       req.body.password,
+      req.body.fullname,
       req.body.street,
       req.body.postal,
       req.body.city
@@ -53,12 +53,13 @@ async function signup(req, res, next) {
         res.redirect("/signup");
       }
     );
+    return;
   }
 
   const user = new User(
     req.body.email,
-    req.body.fullname,
     req.body.password,
+    req.body.fullname,
     req.body.street,
     req.body.postal,
     req.body.city
@@ -95,6 +96,7 @@ function getLogin(req, res) {
 
   if (!sessionData) {
     sessionData = {
+      errorMessage: "",
       email: "",
       password: "",
     };

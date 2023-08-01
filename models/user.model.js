@@ -29,8 +29,6 @@ class User {
 
     const hashedPassword = await bcrypt.hash(this.password, saltRounds) 
 
-    console.log(this.password);
-    console.log(hashedPassword)
       
     await db.getDb().collection("users").insertOne({
         email: this.email,
@@ -42,9 +40,7 @@ class User {
 
   async hasMatchingPassword(hashedPassword) {
     const hasMatch = await bcrypt.compare(this.password, hashedPassword);
-    console.log(hashedPassword)
-    console.log(hasMatch);
-    console.log(this.password);
+    
     return hasMatch;
   }
 }

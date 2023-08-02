@@ -1,3 +1,5 @@
+
+
 #main-header{
     width: 100%;
     max-width: 60rem;
@@ -9,6 +11,9 @@
     align-items: center;
     border-bottom: 1px solid var(--color-primary-500);
     background-color: var(--color-gray-500);
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 #logo a{
@@ -22,6 +27,9 @@
 .nav-items{
     display: flex;
     align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
 }
 
 #mobile-menu-btn{
@@ -39,4 +47,94 @@
     width: 2.25rem;
     height: 0.2rem;
     background-color: var(--color-gray-100);
+}
+
+#main-header nav{
+    display: none;
+}
+
+#mobile-menu{
+    position: fixed;
+    top: 5rem;
+    left: 0;
+    height: calc(100vh - 5rem);
+    width: 100%;
+    background-color: var(--color-gray-700);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    transition: display 2s;
+    
+}
+#mobile-menu nav{
+    height: 20rem;
+    width: 90%;
+    margin: var(--space-4);
+}
+
+#mobile-menu .nav-items a,
+#mobile-menu .nav-items button{
+    font-size: 1.75rem;
+    color: var(--color-primary-100);
+}
+
+.nav-items button{
+    cursor: pointer;
+    font: inherit;
+    border: 1px solid var(--color-primary-100);
+    background-color: transparent;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-small);
+  
+}
+
+#mobile-menu.open{
+    display: flex;
+    }
+
+
+
+
+@media(min-width: 48rem){
+    #mobile-menu-btn{
+        display: none   ;
+    }
+
+    #mobile-menu{
+        display: none;
+    }
+
+    .nav-items{
+        flex-direction: row;
+    }
+
+    .nav-items a{
+        padding: var(--space-2) var(--space-4);
+        border-radius: var(--border-radius-small);
+    }
+
+    .nav-items a:hover,
+    .nav-items a:active{
+        background-color: var(--color-gray-400);
+    }
+
+    .nav-items button{
+       color: var(--color-primary-500);
+       border-color: var(--color-primary-500);
+    }
+
+    main{
+        margin-top: 0;
+    }
+
+    #main-header{
+        position: static;
+    }
+
+    #main-header nav{
+        display: block;
+    }
+
+
+
 }

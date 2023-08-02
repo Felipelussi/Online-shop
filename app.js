@@ -12,6 +12,7 @@ import checkAuthStatusMiddleware from "./middlewares/check-auth.js";
 import createSessionConfig from "./config/session.js";
 import productsRoutes from "./routes/products.routs.js"
 import baseRoutes from "./routes/base.routes.js"
+import adminRoutes from "./routes/admin.routes.js"
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -36,6 +37,7 @@ app.use(checkAuthStatusMiddleware);
 app.use(baseRoutes);
 app.use(authRouter);
 app.use(productsRoutes);
+app.use('/admin', adminRoutes);
 
 app.use(errorHandlerMiddleware);
 

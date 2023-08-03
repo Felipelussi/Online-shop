@@ -13,6 +13,7 @@ import createSessionConfig from "./config/session.js";
 import productsRoutes from "./routes/products.routs.js"
 import baseRoutes from "./routes/base.routes.js"
 import adminRoutes from "./routes/admin.routes.js"
+import exp from "constants";
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -25,13 +26,14 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static("public"));
+app.use('/products/assets', express.static("product-data"));
 app.use(express.urlencoded({ extended: false }));
 
 
 app.use(expressSession(createSessionConfig()));
-app.use(csrf());
+//app.use(csrf());
 
-app.use(addCsrfTokenMiddleware);
+//app.use(addCsrfTokenMiddleware); 
 app.use(checkAuthStatusMiddleware);
 
 app.use(baseRoutes);

@@ -9,11 +9,13 @@ import db from "./data/database.js";
 import addCsrfTokenMiddleware from "./middlewares/csrf-token.js";
 import errorHandlerMiddleware from "./middlewares/error-handler.js";
 import checkAuthStatusMiddleware from "./middlewares/check-auth.js";
+import protectRoutes from "./middlewares/protect-routes.js";
 import createSessionConfig from "./config/session.js";
-import productsRoutes from "./routes/products.routs.js"
+import productsRoutes from "./routes/products.routes.js"
 import baseRoutes from "./routes/base.routes.js"
 import adminRoutes from "./routes/admin.routes.js"
 import exp from "constants";
+
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -39,6 +41,7 @@ app.use(checkAuthStatusMiddleware);
 app.use(baseRoutes);
 app.use(authRouter);
 app.use(productsRoutes);
+app.use(protectRoutes);
 app.use('/admin', adminRoutes);
 
 app.use(errorHandlerMiddleware);

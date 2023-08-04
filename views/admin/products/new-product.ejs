@@ -1,6 +1,8 @@
 <%- include('../../shared/includes/head', {pageTitle: 'All Products' }) %>
     
-<link rel="stylesheet" href="/styles/forms.css">
+    <link rel="stylesheet" href="/styles/forms.css">
+
+    
 
     </head>
 
@@ -21,6 +23,29 @@
               
             </main>
 
+      <!--       <script defer>
+                const imagePickerElement = document.querySelector('#image-upload-control input');
+            const imagePreviewElement = document.querySelector('#image-upload-control img');
+            
+            function updateImagePreview(){
+            
+                const files = imagePickerElement.files;
+            
+                if(!files || files.length == 0){
+                    imagePreviewElement.style.display = 'none';
+                    return;
+                }
+            
+                const pickedFile = files[0];
+            
+                console.log(imagePreviewElement.getAttributeNames());
+            
+                imagePreviewElement.src = URL.createObjectURL(pickedFile);
+                imagePreviewElement.style.display = 'block';
+            }
+            
+            imagePickerElement.addEventListener('change', updateImagePreview);
+            </script> -->
 
 
             <%- include('../../shared/includes/footer') %>

@@ -27,7 +27,7 @@ class Product {
 
   static async findById(productId) {
     let prodId;
-    console.log(productId);
+
     try {
       prodId = new mongodb.ObjectId(productId);
     } catch (error) {
@@ -55,7 +55,6 @@ class Product {
   }
 
   async save() {
-
     const productData = {
       title: this.title,
       summary: this.summary,
@@ -65,7 +64,6 @@ class Product {
     };
 
     if (this.id) {
-      console.log(this.id)
       const productId = new mongodb.ObjectId(this.id);
 
       if (!this.image) {
@@ -78,13 +76,17 @@ class Product {
     } else {
       await db.getDb().collection("products").insertOne(productData);
     }
-
-    
   }
 
   async replaceImage(newImage) {
     this.image = newImage;
     this.updateImageData();
+  }
+
+  remove() {
+
+    const productId = new mongodb.ObjectId(this.id);
+    return db.getDb().collection("products").deleteOne({ _id: productId });
   }
 }
 

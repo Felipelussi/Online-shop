@@ -30,11 +30,11 @@ async function createNewProduct(req, res) {
 
 async function getUpdatedProduct(req, res, next) {
   try {
-    console.log(req.params.id);
+    
 
     const product = await Product.findById(req.params.id);
 
-    console.log(product);
+   
 
     res.render("admin/products/update-product", { product: product });
   } catch (error) {
@@ -61,10 +61,23 @@ async function updateProduct(req, res, next) {
   res.redirect('/admin/products')
 }
 
+async function deleteProduct(req,res, next){
+let product;
+  try{
+   product = await Product.findById(req.params.id);
+   await product.remove();
+  }catch(error){
+    return next(error);
+  }
+
+  res.json({message: 'Deleted Product!'})
+}
+
 export default {
   getNewProduct: getNewProduct,
   getProducts: getProducts,
   createNewProduct: createNewProduct,
   getUpdatedProduct: getUpdatedProduct,
   updateProduct: updateProduct,
+  deleteProduct: deleteProduct
 };
